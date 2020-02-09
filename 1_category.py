@@ -13,7 +13,7 @@ h :: C -> D
 composition = g . f
 
 
-La compositión es asociativa
+Composition is associative.
 
 (h . g) . f = h . (g . f) = h . g . f
 
@@ -25,31 +25,48 @@ C = TypeVar('C')
 D = TypeVar('D')
 
 
-def f(a: A) -> B:
-    return len(a)
-
+def f(x: A) -> B:
+    # return len(a)
+    pass
 
 def g(b: B) -> C:
-    return 2.1 * b
+    pass
+#   return 2.1 * b
 
 
 def h(c: C) -> D:
-    return List[c]
+    pass
+#   return List[c]
 
 
-def compose(g: Callable[[A], B],
-            f: Callable[[B], C]) -> Callable[[A], C]:
+def compose(a: Callable[[B], C],
+            b: Callable[[A], B]) -> Callable[[A], C]:
 
     def inner(arg: A) -> C:
-        print(arg)
-        return g(f(arg))
+        return a(b(arg))
 
     return inner
 
-l: Callable[[A], C] = compose(g, f)
-print(f"{l('Ejemplo 1')} es aprox 18.9")
-m = compose(l, h)
-m('Ejemplo 1')
+
+# h . (g . f)
+l1 = compose(g, f)
+m1 = compose(h, l1)
+
+# (h . g) . f
+l2 = compose(h, g)
+m2 = compose(l2, f)
+
+
+def f_impl(x: str) -> int:
+    return int(x)
+
+
+def g_impl(x: int) -> float:
+    return x * 2.1
+
+
+def h_impl(x: float) -> list:
+    return [x]
 
 '''
 if __name__ == '__main__':
