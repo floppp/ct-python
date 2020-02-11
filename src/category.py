@@ -71,17 +71,40 @@ def h_impl(x: float) -> list:
 
 
 '''
-if __name__ == '__main__':
-    print('\nEjemplo 1')
-    composition: Callable[[A], C] = compose(g, f)
-    # assert h('Ejemplo 1') == 18.9
-    print(f"{composition('Ejemplo 1')} es aprox 18.9")
-    print('\nEjemplo 2')
-    # l = compose(g, f)
-    # m = compose(l, h)
-    # print(f"h . (g . f) = {m('Ejemplo 2a')}")
-    l = compose(h, g)
-    m = compose(l, f)
-#    print(f"(h . g) . f = {m}")
+EXAMPLE 2 - identity
+--------------------
+
+Haskell code:
+
+id :: A -> a
+id x = x
+
+Scala code:
+
+def identity[A](a: A): A = a
+
+'''
+
+
+def identity(a: A) -> A:
+    return a
+
+
+id_lambda: Callable[[A], A] = lambda a: a
+
+
+'''
+EXAMPLE 3 - identity composition
+--------------------
+
+Haskell code:
+
+f . id == f
+id . f == f
+
+Scala code:
+
+f compose identity[A]   == f
+identity[B] _ compose f == f
 
 '''

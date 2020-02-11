@@ -2,6 +2,7 @@ import unittest
 from typing import TypeVar, Callable, List
 from src.category import compose
 from src.category import f_impl, g_impl, h_impl
+from src.category import identity, id_lambda
 
 
 class TestCategory(unittest.TestCase):
@@ -45,6 +46,20 @@ class TestCategory(unittest.TestCase):
         self.assertEquals(hg_f('2'), [2.0])
         self.assertEquals(hg_f('2'), h_impl(g_impl(f_impl('2'))))
         self.assertEquals(hg_f('2'), h_fg('2'))
+
+    def test_identity(self):
+        self.assertEqual(identity(4), 4)
+        self.assertEqual(id_lambda('a'), 'a')
+        self.assertEqual(identity([4]), id_lambda([4]))
+        self.assertNotEqual(identity(4), 3)
+
+    def test_identity_composition(self):
+        fid = compose(f_impl, identity)
+        idf = compose(identity, f_impl)
+        self.assertEqual(fid('3'), 3)
+        self.assertNotEqual(fid('3'), 4)
+        self.assertEqual(idf('3'), 3)
+        self.assertNotEqual(idf('3'), 4)
 
 
 if __name__ == '__main__':
