@@ -29,6 +29,7 @@ def f(x: A) -> B:
     # return len(a)
     pass
 
+
 def g(b: B) -> C:
     pass
 #   return 2.1 * b
@@ -67,6 +68,7 @@ def g_impl(x: int) -> float:
 
 def h_impl(x: float) -> list:
     return [x]
+
 
 '''
 if __name__ == '__main__':
