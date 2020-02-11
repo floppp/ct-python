@@ -63,7 +63,7 @@ def f_impl(x: str) -> int:
 
 
 def g_impl(x: int) -> float:
-    return x * 2.1
+    return x * 1.0
 
 
 def h_impl(x: float) -> list:
