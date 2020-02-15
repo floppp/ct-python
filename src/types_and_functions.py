@@ -64,3 +64,16 @@ def memoization(fn: Callable[[T], U]):
         return __cache[args]
 
     return inner
+
+
+# Random
+# We cannot memoize without a seed
+
+# C++ memoization
+# We can memoize factorial, not get char, not printing. We can with last one too,
+# but because is not a pure function (no referencial transparency) we won't get
+# always the same value.
+
+# Functions on bool
+same: Callable[[bool], bool] = lambda x: x  # id better than same
+negation: Callable[[bool], bool] = lambda x: not x
