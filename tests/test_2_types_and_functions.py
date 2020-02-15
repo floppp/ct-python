@@ -1,5 +1,5 @@
 import unittest
-from src.types_and_functions import factorial, fact
+from src.ch_2_types_and_functions import factorial, fact
 
 
 class TestTypesFuncionts(unittest.TestCase):

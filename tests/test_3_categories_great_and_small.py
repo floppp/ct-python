@@ -1,5 +1,5 @@
 import unittest
-from src.categories_great_and_small import String, sd_combine, sd_empty
+from src.ch_3_categories_great_and_small import String, sd_combine, sd_empty
 
 
 class TestCaegoriesGreatAndSmall(unittest.TestCase):

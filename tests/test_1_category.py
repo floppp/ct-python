@@ -1,8 +1,8 @@
 import unittest
 from typing import TypeVar, Callable, List
-from src.category import compose
-from src.category import f_impl, g_impl, h_impl
-from src.category import identity, id_lambda
+from src.ch_1_category import compose
+from src.ch_1_category import f_impl, g_impl, h_impl
+from src.ch_1_category import identity, id_lambda
 
 
 class TestCategory(unittest.TestCase):
