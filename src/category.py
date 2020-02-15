@@ -49,6 +49,11 @@ def compose(a: Callable[[B], C],
     return inner
 
 
+def comp(a: Callable[[B], C],
+         b: Callable[[A], B]) -> Callable[[A], C]:
+    return lambda arg: a(b(arg))
+
+
 # h . (g . f)
 l1 = compose(g, f)
 m1 = compose(h, l1)
