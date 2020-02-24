@@ -12,6 +12,12 @@ class TestCaegoriesGreatAndSmall(unittest.TestCase):
         self.assertEqual(sd_combine('a', 'b'), 'ab')
         self.assertNotEqual(sd_combine('a', 'b'), 'abc')
 
+    def test_list_monoid(self):
+        ls = [1, 2, 3]
+        ms = [4, 5, 6]
+        self.assertEqual(sd_empty(ls), [])
+        self.assertEqual(sd_combine(ls, ms), [1, 2, 3, 4, 5, 6])
+
 
 if __name__ == '__main__':
     pass

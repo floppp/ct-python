@@ -4,6 +4,13 @@ from abc import ABCMeta
 from abc import abstractmethod
 
 ''' MONOID
+
+Definicion
+----------
+Estructura con dos funciones, una que devuelve el valor que contiene, otra
+que concatena los valores de dos de dichas estructuras.
+----------
+
 class Monoid m where
     mempty :: m
     mappend :: m -> m -> m
@@ -63,6 +70,7 @@ class String(Monoid[str]):
         return m1 + m2
 
 
+# Podemos hace lo mismo con singledispatch.
 @sd_empty.register(str)
 def _(a: str) -> str:
     return ''
@@ -70,4 +78,14 @@ def _(a: str) -> str:
 
 @sd_combine.register(str)
 def _(a: str, b: str) -> str:
+    return a + b
+
+
+@sd_empty.register(list)
+def _(a: list) -> list:
+    return []
+
+
+@sd_combine.register(list)
+def _(a: list, b: list) -> list:
     return a + b
