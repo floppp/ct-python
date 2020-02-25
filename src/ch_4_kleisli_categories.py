@@ -62,13 +62,13 @@ def optional_composition(fa: Callable[[A], Option[B]],
 
 # Ejercicio 2
 # TODO: Limitar que T sea int o float
-def safe_reciprocal(t: T) -> Option[T]:
+def safe_reciprocal(t: float) -> Option[float]:
     return Option(1 / t) if t != 0 else Option(None)
 
 
 # Ejercicio 3
 # Safe root y safe reciprocal composition
-def safe_root(t: T) -> Option[T]:
+def safe_root(t: float) -> Option[float]:
     return Option(sqrt(t)) if t >= 0 else Option(None)
 
 
