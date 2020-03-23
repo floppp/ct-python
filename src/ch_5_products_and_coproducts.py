@@ -70,6 +70,7 @@ of the other.
 # f compose g == identity _
 # g compose f == identity _
 
+
 '''
 PRODUCTO
 
@@ -96,3 +97,26 @@ B = TypeVar('B')
 
 
 def first(p: Tuple[A, B]) -> A: return p[0]
+
+
+def second(p: Tuple[A, B]) -> B: return p[1]
+
+# Vamos a usar dos tipos concretos, int y bool
+
+
+def p(a: int) -> int:
+    return a
+
+
+def q(a: int) -> bool:
+    return True
+
+# Ahora, usamos una tupla con tres elementos
+
+
+def p1(a: Tuple[int, int, bool]) -> int:
+    return a[0]
+
+
+def q1(a: Tuple[int, int, bool]) -> bool:
+    return a[2]
